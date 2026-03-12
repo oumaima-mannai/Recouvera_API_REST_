@@ -10,11 +10,13 @@ app.use(express.json());
 const authRoutes = require('./src/routes/authRoutes');
 const clientRoutes = require('./src/routes/clientRoutes');
 const invoiceRoutes = require('./src/routes/invoiceRoutes');
+const paymentRoutes = require('./src/routes/paymentRoutes');
 
 // Routes Placeholder
 app.use('/api/auth', authRoutes);
 app.use('/api/clients', clientRoutes);
 app.use('/api/invoices', invoiceRoutes);
+app.use('/api/payments', paymentRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to Recouvra+ API' });
