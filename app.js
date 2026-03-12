@@ -12,6 +12,7 @@ const clientRoutes = require('./src/routes/clientRoutes');
 const invoiceRoutes = require('./src/routes/invoiceRoutes');
 const paymentRoutes = require('./src/routes/paymentRoutes');
 const recoveryActionRoutes = require('./src/routes/recoveryActionRoutes');
+const statisticsRoutes = require('./src/routes/statisticsRoutes');
 
 // Routes Placeholder
 app.use('/api/auth', authRoutes);
@@ -19,6 +20,7 @@ app.use('/api/clients', clientRoutes);
 app.use('/api/invoices', invoiceRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/recovery-actions', recoveryActionRoutes);
+app.use('/api/statistics', statisticsRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to Recouvra+ API' });
