@@ -10,7 +10,11 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
+const authRoutes = require('./src/routes/authRoutes');
+
 // Routes Placeholder
+app.use('/api/auth', authRoutes);
+
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to Recouvra+ API' });
 });
