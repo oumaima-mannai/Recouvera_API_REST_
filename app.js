@@ -13,6 +13,10 @@ const invoiceRoutes = require('./src/routes/invoiceRoutes');
 const paymentRoutes = require('./src/routes/paymentRoutes');
 const recoveryActionRoutes = require('./src/routes/recoveryActionRoutes');
 const statisticsRoutes = require('./src/routes/statisticsRoutes');
+const setupSwagger = require('./src/config/swagger');
+
+// Swagger setup
+setupSwagger(app);
 
 // Routes Placeholder
 app.use('/api/auth', authRoutes);
