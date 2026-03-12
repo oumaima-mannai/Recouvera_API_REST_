@@ -1,21 +1,20 @@
 const express = require('express');
 const cors = require('cors');
-const helmet = require('helmet');
-require('dotenv').config();
 
 const app = express();
 
 // Middlewares
-app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
 const authRoutes = require('./src/routes/authRoutes');
 const clientRoutes = require('./src/routes/clientRoutes');
+const invoiceRoutes = require('./src/routes/invoiceRoutes');
 
 // Routes Placeholder
 app.use('/api/auth', authRoutes);
 app.use('/api/clients', clientRoutes);
+app.use('/api/invoices', invoiceRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to Recouvra+ API' });
