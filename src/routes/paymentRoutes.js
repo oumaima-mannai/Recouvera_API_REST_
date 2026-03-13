@@ -18,6 +18,32 @@ router.use(protect);
  *   post:
  *     summary: Enregistrer un paiement (met à jour le statut de la facture)
  *     tags: [Payments]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - factureId
+ *               - montant
+ *             properties:
+ *               factureId:
+ *                 type: string
+ *                 description: ID de la facture (ObjectId MongoDB)
+ *                 example: "69b3b80e184301a41b789cd9"
+ *               montant:
+ *                 type: number
+ *                 minimum: 0
+ *                 example: 500.00
+ *               datePaiement:
+ *                 type: string
+ *                 format: date
+ *                 description: Date du paiement (optionnelle, défaut aujourd'hui)
+ *                 example: "2026-03-13"
+ *               commentaire:
+ *                 type: string
+ *                 example: Paiement partiel
  *     responses:
  *       201:
  *         description: Paiement enregistré

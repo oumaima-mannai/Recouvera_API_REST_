@@ -6,6 +6,9 @@ const { validatePayment } = require('../validators/paymentValidator');
 // @route   POST /api/payments
 // @access  Private
 const createPayment = async (req, res) => {
+    if (!req.body) {
+        return res.status(400).json({ message: 'Request body is required' });
+    }
     const { error } = validatePayment(req.body);
     if (error) return res.status(400).json({ message: error.details[0].message });
 
