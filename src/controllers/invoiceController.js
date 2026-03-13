@@ -6,6 +6,9 @@ const { validateInvoice, validateInvoiceUpdate } = require('../validators/invoic
 // @route   POST /api/invoices
 // @access  Private
 const createInvoice = async (req, res) => {
+    if (!req.body) {
+        return res.status(400).json({ message: 'Request body is required' });
+    }
     const { error } = validateInvoice(req.body);
     if (error) return res.status(400).json({ message: error.details[0].message });
 

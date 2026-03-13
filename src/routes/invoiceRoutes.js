@@ -24,6 +24,39 @@ router.use(protect);
  *   post:
  *     summary: Créer une facture
  *     tags: [Invoices]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - clientId
+ *               - montant
+ *               - dateEcheance
+ *             properties:
+ *               clientId:
+ *                 type: string
+ *                 description: ID du client (ObjectId MongoDB)
+ *                 example: "69b3b80e184301a41b789cd9"
+ *               montant:
+ *                 type: number
+ *                 minimum: 0
+ *                 example: 1500.00
+ *               dateEmission:
+ *                 type: string
+ *                 format: date
+ *                 description: Date d'émission (optionnelle, défaut aujourd'hui)
+ *                 example: "2026-03-13"
+ *               dateEcheance:
+ *                 type: string
+ *                 format: date
+ *                 example: "2026-04-13"
+ *               statut:
+ *                 type: string
+ *                 enum: [unpaid, partially_paid, paid]
+ *                 default: unpaid
+ *                 example: unpaid
  *     responses:
  *       201:
  *         description: Facture créée
@@ -56,6 +89,28 @@ router.route('/')
  *         required: true
  *         schema:
  *           type: string
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               clientId:
+ *                 type: string
+ *                 example: "69b3b80e184301a41b789cd9"
+ *               montant:
+ *                 type: number
+ *                 minimum: 0
+ *                 example: 1500.00
+ *               dateEmission:
+ *                 type: string
+ *                 format: date
+ *               dateEcheance:
+ *                 type: string
+ *                 format: date
+ *               statut:
+ *                 type: string
+ *                 enum: [unpaid, partially_paid, paid]
  *     responses:
  *       200:
  *         description: Facture mise à jour
