@@ -15,6 +15,10 @@ router.use(protect);
  *     responses:
  *       200:
  *         description: Liste des paiements
+ */
+/**
+ * @swagger
+ * /api/payments:
  *   post:
  *     summary: Enregistrer un paiement (met à jour le statut de la facture)
  *     tags: [Payments]
